@@ -6,7 +6,7 @@ const Formulario = ()=>{
         description: ''
     })
 
-    const[arrayTask, setArrayTask] = useState({});
+    const[arrayTask, setArrayTask] = useState([]);
 
 
     const handleInputChange = (event)=>{
@@ -18,11 +18,16 @@ const Formulario = ()=>{
 
     const enviarDatos = (e)=>{
         e.preventDefault();
-        setArrayTask({
-            ...datos
+        setArrayTask([...arrayTask,datos])
+        setDatos({
+            task: 'No ingreso el nombre de la tarea',
+            description: 'No ingreso ninguna descripcion'
         })
-
         e.target.reset();
+    }
+
+    const deleteItem=(index)=>{
+        arrayTask.delete(index)
     }
 
     return(
@@ -39,18 +44,26 @@ const Formulario = ()=>{
                 </div>
                 <div className="col-md-3 p-1">
                     <input
-                    className="for-control"
-                    placeholder="Ingrese la descripcion"
-                    type="text"
-                    name="description"
-                    onChange={handleInputChange}
+                        className="for-control"
+                        placeholder="Ingrese la descripcion"
+                        type="text"
+                        name="description"
+                        onChange={handleInputChange}
                     />
                 </div>
                 <div className="col-md-3">
                     <button className="btn btn-primary" type="submit">Guardar</button>
                 </div>
-                <h3>Tarea:{datos.task}</h3>
-                <h4>Descripcion: {datos.description}</h4>
+                {
+                    arrayTask.map((item, index)=>{
+                        const divTask = <div key={index} className= "colcard">
+                            <h3>Tarea: {item.task}</h3>
+                            <h4>Descripcion: {item.description}</h4>
+                            
+                        </div>
+                        return divTask
+                    })
+                }
                 
             </form>
         </Fragment>
