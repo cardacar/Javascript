@@ -1,8 +1,9 @@
 import React, {Fragment, useState} from 'react';
 
-const Lista = () => {
+const Formulario = () => {
 
     const [arrayNumero, setArrayNumero] = useState([1,2,2,4,5])
+    const [item, setItem] = useState('');
     const agregarItem = (item)=>{
         //setArrayNumero(...arrayNumero, item)
         console.log('click')
@@ -11,6 +12,9 @@ const Lista = () => {
 
     return ( 
         <Fragment>
+            <div className="container mt-5">
+                <h1>Hola mundo</h1>
+            </div>
             <h1>Lista</h1>
             <input type="textt" name="item" />
             <button onClick= {agregarItem}>Agregar</button>
@@ -24,4 +28,4 @@ const Lista = () => {
      );
 }
  
-export default Lista;
+export default Formulario;
