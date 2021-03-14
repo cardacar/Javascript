@@ -1,8 +1,10 @@
 //Programa que me cuenta el numero de aparaciones de una palabra en una cadena mas larga
+console.time('repeatString')
 const cad = "JavaScript disfrutó de un éxito inmediato y Internet Explorer 3.0 introdujo la compatibilidad con JavaScript con el nombre "+
 "JavaScript en Wikipedia Guía de JavaScript en MDN El taller de javascripting en NodeSchool El curso de JavaScript en codecademy.com "+
 "JavaScript elocuent"
 console.log(repeatStr(cad))
+console.timeEnd('repeatString')
 
 function cadenaT(str) {
     return str.toLowerCase().replace(/[.,!?¡¿]/g, "")
